@@ -1,0 +1,3 @@
+/* Reset básico para que Tailwind tome el control */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
