@@ -18,10 +18,10 @@ export default function Hero() {
       >
         <div className="z-10 space-y-4">
           <h1 className="text-white text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            ¡Felices {months} {monthLabel}{extraDays},<br />Alejandra!
+            ¡Felices {months} {monthLabel}{extraDays},<br />Schmoopsie-poo!
           </h1>
           <p className="text-primary font-medium text-lg md:text-xl italic">
-            Te amo demasiado, mi Hanae, Kanao, MaoMao...
+            Te amo con toda el alma, mi Alejandra, Hanae, Kanao, MaoMao...
           </p>
           <p className="text-slate-300 text-sm mt-1 font-semibold tracking-wide uppercase">
             Juntos desde el 19 de Noviembre, 2025
