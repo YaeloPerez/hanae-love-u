@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import AnniversaryCounter from './components/AnniversaryCounter';
@@ -7,31 +7,43 @@ import FirstTrip from './components/FirstTrip';
 import HonorableMention from './components/HonorableMention';
 import AnimeNights from './components/AnimeNights';
 import Letter from './components/Letter';
-import Chapters from './components/Chapters';
+import Chapters, { chapters } from './components/Chapters';
 import BottomNav from './components/BottomNav';
 import { useTimeTogether } from './hooks/useTimeTogether';
 
 function App() {
   const { months, remainingDays } = useTimeTogether();
+  const [selectedChapter, setSelectedChapter] = useState(() =>
+    chapters.find((c) => months >= c.startMonth && months <= c.endMonth) ?? null
+  );
 
   useEffect(() => {
     const extra = remainingDays > 0 ? ` y ${remainingDays} días` : '';
     document.title = `Felices ${months} meses${extra} mi amooor 🩷`;
   }, [months, remainingDays]);
 
+  function handleSelectChapter(chapter) {
+    setSelectedChapter((prev) =>
+      prev && prev.year === chapter.year && prev.quarter === chapter.quarter ? null : chapter
+    );
+  }
+
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
       <Nav />
 
-      <main className="max-w-md mx-auto pb-24">
+      <main className="max-w-md md:max-w-3xl mx-auto pb-24 md:pb-12">
         <Hero />
         <AnniversaryCounter />
-        <PhotoGallery />
+        <Chapters selectedChapter={selectedChapter} onSelect={handleSelectChapter} />
+        <PhotoGallery
+          selectedChapter={selectedChapter}
+          onClearFilter={() => setSelectedChapter(null)}
+        />
         <FirstTrip />
         <HonorableMention />
         <AnimeNights />
         <Letter />
-        <Chapters />
 
         <footer className="mt-12 text-center px-4 pb-12">
           <div className="inline-flex items-center gap-2 text-primary font-bold">

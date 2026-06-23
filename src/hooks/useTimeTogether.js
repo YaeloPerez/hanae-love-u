@@ -2,15 +2,20 @@ import { useState, useEffect } from 'react';
 
 const START_DATE = new Date('2025-11-19T00:00:00');
 
+export function monthsSince(date) {
+  let months =
+    (date.getFullYear() - START_DATE.getFullYear()) * 12 +
+    (date.getMonth() - START_DATE.getMonth());
+  if (date.getDate() < START_DATE.getDate()) months--;
+  return months;
+}
+
 function calculateTime() {
   const now = new Date();
 
   const totalDays = Math.floor((now - START_DATE) / (1000 * 60 * 60 * 24));
 
-  let months =
-    (now.getFullYear() - START_DATE.getFullYear()) * 12 +
-    (now.getMonth() - START_DATE.getMonth());
-  if (now.getDate() < START_DATE.getDate()) months--;
+  const months = monthsSince(now);
 
   const lastAnniversary = new Date(START_DATE);
   lastAnniversary.setMonth(lastAnniversary.getMonth() + months);
