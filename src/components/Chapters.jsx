@@ -4,7 +4,7 @@ import { useTimeTogether } from '../hooks/useTimeTogether';
 export const chapters = [
   { year: 1, quarter: 1, startMonth: 0,  endMonth: 2,  icon: 'auto_stories',  title: 'El Comienzo' },
   { year: 1, quarter: 2, startMonth: 3,  endMonth: 5,  icon: 'celebration',   title: 'Los 100 Días y más' },
-  { year: 1, quarter: 3, startMonth: 6,  endMonth: 8,  icon: 'explore',       title: 'Carretera y Calcetines Mojados' },
+  { year: 1, quarter: 3, startMonth: 6,  endMonth: 8,  icon: 'explore',       title: 'Viajes y MegaDates' },
   { year: 1, quarter: 4, startMonth: 9,  endMonth: 11, icon: 'favorite',      title: 'Por vivir' },
 ];
 
