@@ -30,7 +30,7 @@ export default function Nav() {
           Nuestra Historia
         </NavLink>
         <NavLink
-          to="/invitados"
+          to="/boda"
           className={({ isActive }) =>
             `text-xs font-bold px-3 py-1.5 rounded-full transition-colors flex items-center gap-1 ${
               isActive
@@ -40,7 +40,7 @@ export default function Nav() {
           }
         >
           <span className="material-symbols-outlined text-sm">diversity_1</span>
-          Invitados
+          Nuestra Boda
         </NavLink>
       </div>
 

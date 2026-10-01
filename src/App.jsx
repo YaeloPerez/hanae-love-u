@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import AnniversaryCounter from './components/AnniversaryCounter';
@@ -10,7 +10,7 @@ import AnimeNights from './components/AnimeNights';
 import Letter from './components/Letter';
 import Chapters, { chapters } from './components/Chapters';
 import BottomNav from './components/BottomNav';
-import Invitados from './pages/Invitados';
+import NuestraBoda from './pages/NuestraBoda';
 import { useTimeTogether } from './hooks/useTimeTogether';
 
 function Home() {
@@ -65,13 +65,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/invitados"
+          path="/boda"
           element={
             <main className="max-w-md md:max-w-3xl mx-auto pb-24 md:pb-12">
-              <Invitados />
+              <NuestraBoda />
             </main>
           }
         />
+        <Route path="/invitados" element={<Navigate to="/boda" replace />} />
       </Routes>
       <BottomNav />
     </div>
